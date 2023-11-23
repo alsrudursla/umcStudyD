@@ -6,7 +6,6 @@ import UMC.studyD.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
