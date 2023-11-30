@@ -14,7 +14,6 @@ public class SignInDto {
     private String phoneNum;
     private MemberGender gender;
 
-    /*
     @Builder
     public SignInDto(String email, String password, String nickname, String phoneNum, MemberGender memberGender) {
         this.email = email;
@@ -23,5 +22,4 @@ public class SignInDto {
         this.phoneNum = phoneNum;
         this.gender = memberGender;
     }
-     */
 }
