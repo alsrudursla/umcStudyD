@@ -28,4 +28,30 @@
 //        Member member = Member.createMember(signInDto, bCryptPasswordEncoder);
 //        memberRepository.save(member);
 //    }
+//
+//    // 로그인
+//    public UserDetails login(LoginDto loginDto) throws UsernameNotFoundException {
+//        Member savedMember = memberRepository.findByEmail(loginDto.getEmail());
+//
+//        if (savedMember != null) { // 데이터가 있음
+//            // 비밀번호 비교하기
+//            String inputPassword = loginDto.getPassword();
+//            String savedPassword = savedMember.getPassword();
+//
+//            if (bCryptPasswordEncoder.matches(inputPassword, savedPassword)) {
+//                // 비밀번호 일치
+//                loginDto.setMessage("로그인 성공");
+//                return new CustomUserDetail(savedMember);
+//            }
+//        }
+//        /* 웹으로 하면 적용되는데 postman 사용 시 비밀번호 비교가 자동으로 안된다
+//        if (savedMember != null) {
+//            loginDto.setMessage("로그인 성공");
+//            return new CustomUserDetail(savedMember);
+//        }
+//         */
+//
+//        loginDto.setMessage("로그인 실패");
+//        return null;
+//    }
 //}
