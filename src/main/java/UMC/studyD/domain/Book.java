@@ -2,8 +2,9 @@ package UMC.studyD.domain;
 
 import UMC.studyD.domain.common.BaseEntity;
 import UMC.studyD.domain.mapping.BookHashtag;
-import UMC.studyD.domain.mapping.Like;
+import UMC.studyD.domain.mapping.Likes;
 import UMC.studyD.domain.mapping.Rent;
+import UMC.studyD.dto.AddBookDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,7 @@ public class Book extends BaseEntity {
     private int likeCount;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Like> likes = new ArrayList<>();
+    private List<Likes> likes = new ArrayList<>();
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private List<Rent> rents = new ArrayList<>();
@@ -41,4 +42,13 @@ public class Book extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public static Book createBook(AddBookDto addBookDto) {
+        Book book = Book.builder()
+                .name(addBookDto.getTitle())
+                .description(addBookDto.getDescription())
+                .likeCount(0)
+                .build();
+        return book;
+    }
 }
