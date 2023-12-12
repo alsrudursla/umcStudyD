@@ -1,4 +1,4 @@
-//package UMC.studyD.service;
+//package UMC.studyD.global;
 //
 //import UMC.studyD.domain.Member;
 //import org.springframework.security.core.GrantedAuthority;

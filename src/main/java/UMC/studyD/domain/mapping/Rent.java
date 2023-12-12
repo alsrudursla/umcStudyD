@@ -6,19 +6,21 @@ import UMC.studyD.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // @Builder 사용 시, 생성자에 필요한 값이 자동 생성되므로, @NoArgsConstructor 를 사용하지 않아도 됨
 @AllArgsConstructor
 public class Rent extends BaseEntity {
+
+    public Rent(Member member, Book book) {
+        this.member = member;
+        this.book = book;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private int count;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

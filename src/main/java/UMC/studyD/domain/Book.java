@@ -1,6 +1,7 @@
 package UMC.studyD.domain;
 
 import UMC.studyD.domain.common.BaseEntity;
+import UMC.studyD.domain.enums.BookStatus;
 import UMC.studyD.domain.mapping.BookHashtag;
 import UMC.studyD.domain.mapping.Likes;
 import UMC.studyD.domain.mapping.Rent;
@@ -23,10 +24,13 @@ public class Book extends BaseEntity {
     private Long id;
 
     @Column(nullable = false, length = 20)
-    private String name;
+    private String title;
 
     @Column(nullable = false)
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    private BookStatus bookStatus;
 
     private int likeCount;
 
@@ -45,10 +49,25 @@ public class Book extends BaseEntity {
 
     public static Book createBook(AddBookDto addBookDto) {
         Book book = Book.builder()
-                .name(addBookDto.getTitle())
+                .title(addBookDto.getTitle())
                 .description(addBookDto.getDescription())
+                .bookStatus(BookStatus.AVAILABLE)
                 .likeCount(0)
                 .build();
         return book;
+    }
+
+    public void changeBookStatus(BookStatus bookStatus) {
+        this.bookStatus = bookStatus;
+    }
+
+    // 좋아요 추가
+    public void addLikesCount() {
+        this.likeCount++;
+    }
+
+    // 좋아요 취소
+    public void deleteLikesCount() {
+        this.likeCount--;
     }
 }

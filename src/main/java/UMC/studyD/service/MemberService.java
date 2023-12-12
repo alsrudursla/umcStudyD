@@ -1,14 +1,19 @@
 //package UMC.studyD.service;
 //
 //import UMC.studyD.domain.Member;
+//import UMC.studyD.dto.LoginDto;
 //import UMC.studyD.dto.SignInDto;
+//import UMC.studyD.global.CustomUserDetail;
 //import UMC.studyD.repository.MemberRepository;
 //import lombok.RequiredArgsConstructor;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
 //
 //@Service
+//@Transactional
 //@RequiredArgsConstructor
 //public class MemberService {
 //

@@ -1,4 +1,4 @@
-//package UMC.studyD.service;
+//package UMC.studyD.global;
 //
 //import UMC.studyD.domain.Member;
 //import UMC.studyD.repository.MemberRepository;
