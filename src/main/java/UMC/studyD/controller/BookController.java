@@ -36,6 +36,7 @@ public class BookController {
     public ResponseEntity<ResponseBookDto> getBookById(@PathVariable("id") Long id) {
         Book book = bookService.getBookById(id);
 
+        // 조회하고자 하는 책의 유무 확인
         if (book == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
