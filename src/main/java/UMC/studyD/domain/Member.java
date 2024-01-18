@@ -10,8 +10,8 @@ import UMC.studyD.domain.mapping.Rent;
 import UMC.studyD.dto.SignInDto;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -64,20 +64,20 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAlarm> memberAlarms = new ArrayList<>();
 
-    public static Member createMember(SignInDto signInDto, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        Member member = Member.builder()
-                .email(signInDto.getEmail())
-                .password(bCryptPasswordEncoder.encode(signInDto.getPassword()))
-                .nickname(signInDto.getNickname())
-                .phoneNum(signInDto.getPhoneNum())
-                .inactiveDate(null)
-                .gender(signInDto.getGender())
-                .status(MemberStatus.ACTIVE)
-                .token(null)
-                .authority(MemberAuthority.ROLE_USER)
-                .build();
-        return member;
-    }
+//    public static Member createMember(SignInDto signInDto, BCryptPasswordEncoder bCryptPasswordEncoder) {
+//        Member member = Member.builder()
+//                .email(signInDto.getEmail())
+//                .password(bCryptPasswordEncoder.encode(signInDto.getPassword()))
+//                .nickname(signInDto.getNickname())
+//                .phoneNum(signInDto.getPhoneNum())
+//                .inactiveDate(null)
+//                .gender(signInDto.getGender())
+//                .status(MemberStatus.ACTIVE)
+//                .token(null)
+//                .authority(MemberAuthority.ROLE_USER)
+//                .build();
+//        return member;
+//    }
 
     public void createToken(String token) {
         this.token = token;
